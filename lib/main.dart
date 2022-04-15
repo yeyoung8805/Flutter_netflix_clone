@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_netflix_clone/screen/home_screen.dart';
 import 'package:flutter_netflix_clone/widget/bottom_bar.dart';
 
 void main() {
@@ -10,7 +11,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // TabController controller;
   TabController? controller;
 
   @override
@@ -28,11 +28,7 @@ class _MyAppState extends State<MyApp> {
           body: TabBarView(
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
-              Container(
-                child: Center(
-                  child: Text('home'),
-                ),
-              ),
+              HomeScreen(),
               Container(
                 child: Center(
                   child: Text('search'),
