@@ -23,7 +23,7 @@ class _CarouselImageState extends State<CarouselImage> {
   void initState() {
     super.initState();
     movies = widget.movies;
-    images = movies?.map((m) => Image.asset('./images/' + m.poster)).toList();
+    images = movies?.map((m) => Image.network(m.poster)).toList();
     keywords = movies?.map((m) => m.keyword).toList();
     likes = movies?.map((m) => m.like).toList();
     _currentKeyword = keywords![0];
@@ -79,23 +79,25 @@ class _CarouselImageState extends State<CarouselImage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(right: 10),
-                  child: FlatButton(
-                    color: Colors.white,
+                  child: TextButton(
                     onPressed: () {},
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.play_arrow,
-                          color: Colors.black,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(3),
-                        ),
-                        Text(
-                          '재생',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
+                    child: Container(
+                      color: Colors.white,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.play_arrow,
+                            color: Colors.black,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(3),
+                          ),
+                          Text(
+                            '재생',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -107,13 +109,12 @@ class _CarouselImageState extends State<CarouselImage> {
                         icon: Icon(Icons.info),
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
-                            fullscreenDialog: true,
-                            builder: (BuildContext context) {
-                              return DetailScreen(
-                                movie: movies![_currentPage],
-                              );
-                            }
-                          ));
+                              fullscreenDialog: true,
+                              builder: (BuildContext context) {
+                                return DetailScreen(
+                                  movie: movies![_currentPage],
+                                );
+                              }));
                         },
                       ),
                       Text(

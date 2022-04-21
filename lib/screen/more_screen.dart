@@ -48,7 +48,7 @@ class MoreScreen extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.all(10),
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {},
                 child: Container(
                   color: Colors.red,
